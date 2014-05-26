@@ -1,15 +1,14 @@
-int led1 = 11;
-int led2 = 12;
-int button1 = 10;
-
+// pin 10 is button switch, also A0 recieves analog sensor value. 
+// when button is pressed, A0 and pin 10 receives 5V and pin 12 turns on LED. 
+// otherwise pin 11 LED is always on. 
+// practice with if/else command.
 
 void setup()
-
-//pin 10 is button switch, also A0 recieves analog sensor value. 
-//when button is pressed, A0 and pin 10 receives 5V and pin 12 turns on LED. 
-//otherwise pin 11 LED is always on. 
-//practice with if/else command.
 {
+  int led1 = 11;
+  int led2 = 12;
+  int button1 = 10;
+
   Serial.begin(9600);
   pinMode (led1, OUTPUT);
   pinMode (led2, OUTPUT);
@@ -17,7 +16,7 @@ void setup()
 }
 
 void loop()
-{                                                   // open loop function
+{                                                  // open loop function
   int sensorValue = analogRead (A0);
   float voltage = sensorValue * (5.0 / 1023.0);
   Serial.println(voltage);
@@ -35,4 +34,3 @@ void loop()
       digitalWrite (led2, HIGH);
     }                                              // close else
 }                                                  // close loop function
-
